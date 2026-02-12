@@ -3,76 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul Game Audio | Custom Portfolio</title>
-    
-    <meta name="description" content="A brief description of your site for Google.">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+    <title>Game Audio Designer | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Modern Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         :root {
-            --primary-bg: #ffffff;
-            --text-color: #333333;
-            --accent-color: #007bff; /* Change this to your brand color */
+            --bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text: #e0e0e0;
+            --accent: #00d4ff; /* Neon Blue / Audio vibe */
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--primary-bg);
+            margin: 0;
         }
 
         header {
-            height: 80px;
+            padding: 80px 10%;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('your-header-bg.jpg') center/cover;
+        }
+
+        .section { padding: 60px 10%; }
+        h2 { border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 30px; text-transform: uppercase; }
+
+        /* Video Containers */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0; overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-5px); border: 1px solid var(--accent); }
+        .card img { width: 100%; border-radius: 5px; margin-bottom: 15px; }
+
+        .about-flex {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-            border-bottom: 1px solid #eee;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .about-photo {
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            object-fit: cover;
         }
 
-        main {
-            min-height: 80vh;
-            padding: 2rem 5%;
-        }
-
-        footer {
-            padding: 2rem;
-            text-align: center;
-            background: #f9f9f9;
-        }
-
-        /* Recreating the slide animations from your Wix code */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .content-section {
-            animation: fadeIn 0.8s ease-out;
+        .contact-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <header id="SITE_HEADER">
-        <div class="logo"><strong>YOUR NAME/BRAND</strong></div>
-        <nav>
-            </nav>
+    <header>
+        <h1>[YOUR NAME]</h1>
+        <p>Game Audio Designer | Sound Designer | Implementation</p>
+        <div class="video-container" style="margin-top: 30px;">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        </div>
     </header>
 
-    <main id="PAGES_CONTAINER">
-        <section class="content-section">
-            <h1>Welcome to My Site</h1>
-            <p>This is an optimized, clean version of your code.</p>
-        </section>
-    </main>
+    <section class="section">
+        <div class="about-flex">
+            <img src="https://via.placeholder.com/200" alt="Your Photo" class="about-photo">
+            <div style="flex: 1;">
+                <h2>About Me</h2>
+                <p>Hello! I am a sound designer specialized in creating immersive sonic experiences for games. I love working with [Engine Name] and [Middleware Name].</p>
+            </div>
+        </div>
+    </section>
 
-    <footer id="SITE_FOOTER">
-        <p>&copy; 2026 Your Name. Built with speed.</p>
+    <section class="section">
+        <h2>Worked Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/400x200" alt="Project 1">
+                <h3>Project Title</h3>
+                <p>A brief description of the game and your specific role (e.g., Lead Sound Designer).</p>
+            </div>
+            </div>
+    </section>
+
+    <section class="section">
+        <h2>Technical Implementation</h2>
+        <div class="grid">
+            <div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+                </div>
+                <p style="margin-top:10px;">Wwise/Unity implementation of a dynamic footsteps system.</p>
+            </div>
+            <div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+                </div>
+                <p style="margin-top:10px;">Custom weapon firing logic in Unreal Engine/FMOD.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Testimonials</h2>
+        <div class="card">
+            <p>"[Your Name] is a wizard with audio. The game feel improved 100% after they joined the team."</p>
+            <small>— Game Director, Awesome Studios</small>
+        </div>
+    </section>
+
+    <section class="section" style="text-align: center;">
+        <h2>Get In Touch</h2>
+        <p>Currently open for freelance and full-time opportunities.</p>
+        <a href="mailto:yourname@email.com" class="contact-btn">Email Me</a>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; font-size: 0.8rem; color: #666;">
+        &copy; 2026 [Your Name] | Game Audio Portfolio
     </footer>
 
 </body>
