@@ -74,4 +74,20 @@ footer {
 }
 
 
+.card a {
+    display: block;       /* Makes it fill the container */
+    text-decoration: none;/* Removes blue underline */
+    color: inherit;       /* Keeps your original text color */
+    margin: 0;            /* Removes default link margins */
+    padding: 0;           /* Removes default link padding */
+    height: 100%;         /* Ensures click area covers full card */
+}
 
+/* Ensure images inside links don't get extra spacing */
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 15px;
+}
