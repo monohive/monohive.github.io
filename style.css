@@ -1,93 +1,147 @@
-/* Reset some default browser styles */
-body, h1, h2, p, ul {
-  margin: 0;
-  padding: 0;
+/* style.css */
+:root {
+    --bg: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --text: #e0e0e0;
+    --accent: #00d4ff;
 }
 
-/* General page styles */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
-  padding: 20px;
+    font-family: 'Inter', sans-serif; /* Ensure you have this font loaded or fallback to sans-serif */
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0; /* Remove default padding that conflicts with full-width sections */
 }
 
-/* Header styles */
 header {
-  background: #222;
-  color: #fff;
-  padding: 40px 20px;
-  text-align: center;
+    padding: 80px 10%;
+    text-align: center;
+    /* Add your background image URL here */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('your-header-bg.jpg') center/cover;
 }
 
-header h1 {
-  margin-bottom: 10px;
-  font-size: 2.5em;
+.section { 
+    padding: 60px 10%; 
 }
 
-header p {
-  font-size: 1.2em;
-  color: #ccc;
+h2 { 
+    border-left: 4px solid var(--accent); 
+    padding-left: 15px; 
+    margin-bottom: 30px; 
+    text-transform: uppercase; 
+    color: var(--text); /* Ensure heading color matches theme */
 }
 
-/* Section styles */
-section {
-  margin: 40px auto;
-  max-width: 800px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* Grid Layout - CRITICAL for your projects */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
 }
 
-section h2 {
-  margin-bottom: 15px;
-  color: #444;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
+/* Card Styles */
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    position: relative; /* Needed for absolute link overlay */
+    overflow: hidden;
 }
 
-/* Lists */
-ul {
-  list-style-type: disc;
-  margin-left: 20px;
+.card:hover { 
+    transform: translateY(-5px); 
+    border: 1px solid var(--accent); 
 }
 
-/* Links */
-a {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  margin-top: 40px;
-  padding: 20px;
-  color: #777;
-  font-size: 0.9em;
-}
-
-
-.card a {
-    display: block;       /* Makes it fill the container */
-    text-decoration: none;/* Removes blue underline */
-    color: inherit;       /* Keeps your original text color */
-    margin: 0;            /* Removes default link margins */
-    padding: 0;           /* Removes default link padding */
-    height: 100%;         /* Ensures click area covers full card */
-}
-
-/* Ensure images inside links don't get extra spacing */
-.card img {
-    width: 100%;
+/* Image Handling */
+.card img { 
+    width: 100%; 
     height: auto;
-    object-fit: cover;
+    aspect-ratio: 2/1; /* Enforces 600x300 ratio */
+    object-fit: cover; /* Prevents stretching */
+    border-radius: 5px; 
+    margin-bottom: 15px; 
     display: block;
-    margin-bottom: 15px;
+}
+
+/* Clickable Card Link Overlay */
+.card a.card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* About Section */
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.about-photo {
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    object-fit: cover;
+}
+
+/* Video Containers */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0; 
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    border: 0;
+}
+
+/* Buttons */
+.contact-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.contact-btn:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center; 
+    padding: 40px; 
+    font-size: 0.8rem; 
+    color: #666;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .section { padding: 40px 5%; }
+    
+    .about-flex { flex-direction: column; text-align: center; }
+    
+    .grid { grid-template-columns: 1fr; } /* Stack cards on mobile if desired */
 }
