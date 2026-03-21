@@ -50,14 +50,14 @@
             gap: 25px;
         }
 
-        /* --- CRITICAL FIX START --- */
+        /* Card Styles */
         .card {
             background: var(--card-bg);
             padding: 20px;
             border-radius: 10px;
             transition: transform 0.3s ease;
-            position: relative; /* Required for the link overlay to work */
-            overflow: hidden;   /* Keeps the link inside the rounded corners */
+            position: relative;
+            overflow: hidden;
         }
         
         .card:hover { 
@@ -65,7 +65,6 @@
             border: 1px solid var(--accent); 
         }
 
-        /* Ensure images don't block clicks and maintain aspect ratio */
         .card img { 
             width: 100%; 
             height: auto;
@@ -74,10 +73,9 @@
             border-radius: 5px; 
             margin-bottom: 15px; 
             display: block;
-            pointer-events: none; /* Prevents image from intercepting clicks */
+            pointer-events: none;
         }
 
-        /* The Invisible Clickable Overlay */
         .card-link {
             position: absolute;
             top: 0;
@@ -88,7 +86,6 @@
             cursor: pointer;
             display: block;
         }
-        /* --- CRITICAL FIX END --- */
 
         .about-flex {
             display: flex;
@@ -112,6 +109,59 @@
             font-weight: bold;
             text-decoration: none;
         }
+
+        /* --- FADE CAROUSEL STYLES --- */
+        .testimonial-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 300px; /* Prevents layout shift */
+        }
+
+        .testimonial-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none; /* Only visible slide is clickable if needed */
+        }
+
+        .testimonial-slide.active {
+            opacity: 1;
+            position: relative; /* Brings active slide into flow */
+            pointer-events: auto;
+        }
+
+        .testimonial-content {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .testimonial-content p {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content small {
+            display: block;
+            text-align: right;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        /* ---------------------------- */
+
+        footer {
+            text-align: center; 
+            padding: 40px; 
+            font-size: 0.8rem; 
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -131,8 +181,8 @@
                 <h2>About Me</h2>
                 <p> I'm a game sound designer based in India. I have a passion for creating immersive and engaging audio experiences across across game genres. 
                     I can score and compose original music, do sound design, record foley, and handle implementation across a range of game engines and middleware, such as Unity, Unreal, FMOD, and Wwise. 
-                    I have worked on titles remotely, and I’m great at collaborating with distributed teams and shipping projects independently. 
-                    I’ve enjoyed my years in the game dev industry since 2022, building on over decade of experience in audio engineering and live sound.
+                    I have worked on titles remotely, and I'm great at collaborating with distributed teams and shipping projects independently. 
+                    I've enjoyed my years in the game dev industry since 2022, building on over decade of experience in audio engineering and live sound.
                 </p>
             </div>
         </div>
@@ -142,7 +192,7 @@
         <h2>Projects</h2>
         <div class="grid">
             
-            <!-- Card 1: Fixed Link (No spaces in URL) -->
+            <!-- Card 1 -->
             <div class="card">
                 <a href="https://store.steampowered.com/app/1480810/Crimson_Tactics_The_Rise_of_The_White_Banner/" target="_blank" class="card-link"></a>
                 <img src="CrimsonTactics.png" alt="Crimson Tactics : The Rise Of The White Banner">
@@ -221,21 +271,35 @@
         </div>
     </section>
 
-    
-
+    <!-- FADE CAROUSEL SECTION -->
     <section class="section">
         <h2>Testimonials</h2>
-        <div class="card">
-            <p>"Immensely talented Sound Director and Music Composer. Rahul singlehandedly took charge of the Audio Pipelines at Black March Studios for Crimson Tactics. He directed the game's audio and composed the OST from scratch."</p>
-            <small>— Arunab Hazarika, Game Director at Black March Studios / Starlight Forge Studios </small>
-        </div>
-        <div class="card">
-            <p>"I worked with Rahul at Black March Studios where he was responsible for sound designs and sound production for Crimson Tactics.He played a significant role in reforming the sound implementation pipeline by shifting implementation from Unity to Fmod, making sound production more time-efficient and practical. Rahul's creativity and knowledge always allowed him to understand the specifics of the sounds required in various scenarios. And with his excellent skills in creating sound assets and composing music, he delivered an immersive audio experience.His quality leadership skills led to the growth of the other designers in the sound team, and his collaborative nature assisted the sound team to work flawlessly with other teams and meet rising expectations and requirements of sound changes during production phases and after player feedback. I recommend Rahul with enthusiasm as his creativity, skills and personal qualities would make him a priceless asset to any team and contribute significantly towards sound design."</p>
-            <small>— Stotriyo Chakraborty , Narrative Designer </small>
-        </div>
-        <div class="card">
-            <p>"I worked with Rahul at Black March Studios where he was responsible for sound designs and sound production for Crimson Tactics. He played a significant role in reforming the sound implementation pipeline by shifting implementation from Unity to Fmod, making sound production more time-efficient and practical. Rahul's creativity and knowledge always allowed him to understand the specifics of the sounds required in various scenarios. And with his excellent skills in creating sound assets and composing music, he delivered an immersive audio experience. His quality leadership skills led to the growth of the other designers in the sound team, and his collaborative nature assisted the sound team to work flawlessly with other teams and meet rising expectations and requirements of sound changes during production phases and after player feedback. I recommend Rahul with enthusiasm as his creativity, skills and personal qualities would make him a priceless asset to any team and contribute significantly towards sound design."</p>
-            <small>— Atulya Thorat, Game Producer at Shortgun Games </small>
+        <div class="testimonial-carousel">
+            
+            <!-- Slide 1 -->
+            <div class="testimonial-slide active">
+                <div class="testimonial-content">
+                    <p>"Immensely talented Sound Director and Music Composer. Rahul singlehandedly took charge of the Audio Pipelines at Black March Studios for Crimson Tactics. He directed the game's audio and composed the OST from scratch."</p>
+                    <small>— Arunab Hazarika, Game Director at Black March Studios / Starlight Forge Studios</small>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>"I worked with Rahul at Black March Studios where he was responsible for sound designs and sound production for Crimson Tactics. He played a significant role in reforming the sound implementation pipeline by shifting implementation from Unity to Fmod, making sound production more time-efficient and practical. Rahul's creativity and knowledge always allowed him to understand the specifics of the sounds required in various scenarios. And with his excellent skills in creating sound assets and composing music, he delivered an immersive audio experience. His quality leadership skills led to the growth of the other designers in the sound team, and his collaborative nature assisted the sound team to work flawlessly with other teams and meet rising expectations and requirements of sound changes during production phases and after player feedback. I recommend Rahul with enthusiasm as his creativity, skills and personal qualities would make him a priceless asset to any team and contribute significantly towards sound design."</p>
+                    <small>— Stotriyo Chakraborty, Narrative Designer</small>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>"I worked with Rahul at Black March Studios where he was responsible for sound designs and sound production for Crimson Tactics. He played a significant role in reforming the sound implementation pipeline by shifting implementation from Unity to Fmod, making sound production more time-efficient and practical. Rahul's creativity and knowledge always allowed him to understand the specifics of the sounds required in various scenarios. And with his excellent skills in creating sound assets and composing music, he delivered an immersive audio experience. His quality leadership skills led to the growth of the other designers in the sound team, and his collaborative nature assisted the sound team to work flawlessly with other teams and meet rising expectations and requirements of sound changes during production phases and after player feedback. I recommend Rahul with enthusiasm as his creativity, skills and personal qualities would make him a priceless asset to any team and contribute significantly towards sound design."</p>
+                    <small>— Atulya Thorat, Game Producer at Shortgun Games</small>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -248,6 +312,29 @@
     <footer style="text-align: center; padding: 40px; font-size: 0.8rem; color: #666;">
         &copy; 2026 Rahul Ranganath | Game Audio Portfolio
     </footer>
+
+    <!-- Script to handle automatic fading -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            let currentSlide = 0;
+            const slideInterval = 6000; // 6 seconds
+
+            function nextSlide() {
+                // Remove active class from current
+                slides[currentSlide].classList.remove('active');
+                
+                // Calculate next slide index
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                // Add active class to next
+                slides[currentSlide].classList.add('active');
+            }
+
+            // Start the loop
+            setInterval(nextSlide, slideInterval);
+        });
+    </script>
 
 </body>
 </html>
