@@ -151,3 +151,30 @@ footer {
     .grid { grid-template-columns: 1fr; } /* Stack cards on mobile if desired */
 }
 
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    color: var(--text);
+    font-size: 1.8rem; /* Controls size of all icons */
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* Specific fix for the SVG to ensure it inherits size correctly if needed */
+.social-links svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+}
