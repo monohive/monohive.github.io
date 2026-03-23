@@ -14,7 +14,7 @@ body {
     color: var(--text);
     line-height: 1.6;
     margin: 0;
-    padding: 100px;
+    padding: 0;
     /* Remove default padding that conflicts with full-width sections */
 }
 
@@ -111,7 +111,7 @@ h2 {
 /* Video Containers */
 .video-container {
     position: relative;
-    padding-bottom: 35.5;
+    padding-bottom: 56.25%;
     /* 16:9 ratio */
     height: 0;
     overflow: hidden;
