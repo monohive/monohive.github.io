@@ -9,8 +9,8 @@
 body {
     font-family: 'Inter', sans-serif;
     /* Ensure you have this font loaded or fallback to sans-serif */
+    font-size: 24px; /* Added from internal styles */
     background-color: var(--bg);
-    font-size: 24px; /* Add this line to control the base font size */
     color: var(--text);
     line-height: 1.6;
     margin: 0;
@@ -148,7 +148,7 @@ h2 {
 footer {
     text-align: center;
     padding: 40px;
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* This was originally inline in the HTML footer tag */
     color: #666;
 }
 
@@ -200,4 +200,62 @@ footer {
     display: block;
 }
 
+/* --- ADDED FROM INTERNAL STYLES FOR TESTIMONIALS AND FOOTER FONT SIZE --- */
+
+/* --- FADE CAROUSEL STYLES (from internal <style>) --- */
+.testimonial-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 300px; /* Prevents layout shift */
+}
+
+.testimonial-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none; /* Only visible slide is clickable if needed */
+}
+
+.testimonial-slide.active {
+    opacity: 1;
+    position: relative; /* Brings active slide into flow */
+    pointer-events: auto;
+}
+
+.testimonial-content {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.testimonial-content p {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+/* Rule for h2 inside testimonial content (was implicitly styled by general h2 but might need specific targeting if nested differently) */
+/* Actually, looking again, there IS NO h2 INSIDE testimonial-content in the HTML, only <p> and <small>. */
+/* The original internal style had h2 here but it wasn't used. We can omit the h2 rule inside .testimonial-content */
+
+
+.testimonial-content small {
+    display: block;
+    text-align: right;
+    color: var(--accent);
+    font-weight: bold;
+}
+/* ---------------------------- */
+
+
+/* Ensure footer font size is correct if the inline style was removed */
+/* The rule for footer font-size is already included above in the main footer {} block */
+/* If the inline style was font-size: 0.8rem;, then the rule above covers it. */
+/* If you want a different size specifically for the footer text compared to the base, keep or adjust the footer {} rule. */
 
