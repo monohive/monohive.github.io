@@ -1,7 +1,4 @@
 
-
-
-
 root {
    --bg: #0f0f0f;
    --card-bg: #1a1a1a;
@@ -13,6 +10,7 @@ body {
   font-family: 'Inter', sans-serif;
   /* Ensure you have this font loaded or fallback to sans-serif */
   background-color: var(--bg);
+  font-size: 18px; /* Add this line to increase the base font size */
   color: var(--text);
   line-height: 1.6;
   margin: 0;
