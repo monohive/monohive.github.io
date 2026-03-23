@@ -1,31 +1,32 @@
-
+/* style.css */
 :root {
-   --bg: #0f0f0f;
-   --card-bg: #1a1a1a;
-   --text: #e0e0e0;
-   --accent: #00d4ff;
+    --bg: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --text: #e0e0e0;
+    --accent: #00d4ff;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  /* Ensure you have this font loaded or fallback to sans-serif */
-  background-color: var(--bg);
-  font-size: 18px; /* Add this line to increase the base font size */
-  color: var(--text);
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  /* Remove default padding that conflicts with full-width sections */
+    font-family: 'Inter', sans-serif;
+    /* Ensure you have this font loaded or fallback to sans-serif */
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    /* Remove default padding that conflicts with full-width sections */
 }
 
 header {
     padding: 80px 10%;
     text-align: center;
+    /* Add your background image URL here */
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('your-header-bg.jpg') center/cover;
 }
 
 .section {
     padding: 60px 10%;
+
 }
 
 h2 {
@@ -33,28 +34,11 @@ h2 {
     padding-left: 15px;
     margin-bottom: 30px;
     text-transform: uppercase;
+    color: var(--text);
+    /* Ensure heading color matches theme */
 }
 
-/* Video Containers */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    background: #000;
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* Grid Layouts */
+/* Grid Layout - CRITICAL for your projects */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -68,26 +52,34 @@ h2 {
     border-radius: 10px;
     transition: transform 0.3s ease;
     position: relative;
+    /* Needed for absolute link overlay */
     overflow: hidden;
+    position: relative;
+    /* Needed for the link overlay */
 }
+
 
 .card:hover {
     transform: translateY(-5px);
     border: 1px solid var(--accent);
 }
 
+/* Image Handling */
 .card img {
     width: 100%;
     height: auto;
     aspect-ratio: 2/1;
+    /* Enforces 600x300 ratio */
     object-fit: cover;
+    /* Prevents stretching */
     border-radius: 5px;
     margin-bottom: 15px;
     display: block;
     pointer-events: none;
 }
 
-.card-link {
+/* Clickable Card Link Overlay */
+.card a.card-link {
     position: absolute;
     top: 0;
     left: 0;
@@ -96,8 +88,10 @@ h2 {
     z-index: 10;
     cursor: pointer;
     display: block;
+    background: transparent;
 }
 
+/* About Section */
 .about-flex {
     display: flex;
     align-items: center;
@@ -113,6 +107,27 @@ h2 {
     object-fit: cover;
 }
 
+/* Video Containers */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Buttons */
 .contact-btn {
     display: inline-block;
     background: var(--accent);
@@ -121,61 +136,67 @@ h2 {
     border-radius: 5px;
     font-weight: bold;
     text-decoration: none;
+    transition: opacity 0.3s;
 }
 
-/* --- FADE CAROUSEL STYLES --- */
-.testimonial-carousel {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    min-height: 300px;
-    /* Prevents layout shift */
+.contact-btn:hover {
+    opacity: 0.8;
+    text-decoration: none;
 }
 
-.testimonial-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    pointer-events: none;
-    /* Only visible slide is clickable if needed */
-}
-
-.testimonial-slide.active {
-    opacity: 1;
-    position: relative;
-    /* Brings active slide into flow */
-    pointer-events: auto;
-}
-
-.testimonial-content {
-    background: var(--card-bg);
-    padding: 40px;
-    border-radius: 10px;
-    border-left: 4px solid var(--accent);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-                
-.testimonial-content p {
-    font-size: 1.1rem;
-    font-style: italic;
-    margin-bottom: 20px;
-}
-
-.testimonial-content small {
-    display: block;
-    text-align: right;
-    color: var(--accent);
-    font-weight: bold;
-}
-/* ---------------------------- */
-                
 footer {
     text-align: center;
     padding: 40px;
     font-size: 0.8rem;
     color: #666;
 }
-             
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .section {
+        padding: 40px 5%;
+    }
+
+    .about-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack cards on mobile if desired */
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    color: var(--text);
+    font-size: 1.8rem;
+    /* Controls size of all icons */
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+} 
+
+
+/* Specific fix for the SVG to ensure it inherits size correctly if needed */
+.social-links svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+}
+
+
