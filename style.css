@@ -259,29 +259,3 @@ footer {
 /* If the inline style was font-size: 0.8rem;, then the rule above covers it. */
 /* If you want a different size specifically for the footer text compared to the base, keep or adjust the footer {} rule. */
 
-/* Smaller videos for Technical Implementation section only */
-.tech-impl .video-container {
-    /* Size control */
-    max-width: 480px;        /* Half-size, sharp thumbnail width */
-    margin: 0 auto 25px auto; /* Centers video + spacing below */
-    
-    /* Modern aspect ratio (replaces padding-bottom trick) */
-    aspect-ratio: 16/9;
-    height: auto;
-    padding-bottom: 0;       /* Disable old trick to avoid conflict */
-    
-    /* Keep existing styling */
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    background: #000;
-}
-
-.tech-impl .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
