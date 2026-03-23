@@ -14,7 +14,7 @@ body {
     color: var(--text);
     line-height: 1.6;
     margin: 0;
-    padding: 0;
+    padding: 50;
     /* Remove default padding that conflicts with full-width sections */
 }
 
