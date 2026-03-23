@@ -259,3 +259,8 @@ footer {
 /* If the inline style was font-size: 0.8rem;, then the rule above covers it. */
 /* If you want a different size specifically for the footer text compared to the base, keep or adjust the footer {} rule. */
 
+/* Smaller videos for Technical Implementation section only */
+.tech-impl .video-container {
+    max-width: 480px;   /* Limits width so thumbnails aren't stretched */
+    margin: 0 auto 20px auto; /* Centers video + adds bottom spacing */
+}
