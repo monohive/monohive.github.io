@@ -10,6 +10,7 @@ body {
     font-family: 'Inter', sans-serif;
     /* Ensure you have this font loaded or fallback to sans-serif */
     background-color: var(--bg);
+    font-size: 24px; /* Add this line to control the base font size */
     color: var(--text);
     line-height: 1.6;
     margin: 0;
