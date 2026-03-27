@@ -1,124 +1,123 @@
-/* style.css */
+/* ============================================
+   Rahul Ranganath — Game Audio Portfolio
+   style.css
+   ============================================ */
+
+/* --- RESET & ROOT --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 :root {
-    --bg: #000000;
-    --card-bg: #1a1a1a;
-    --text: #e0e0e0;
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --card-bg: #1c1c1c;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(0, 212, 255, 0.35);
+    --text: #e2e2e2;
+    --text-muted: #888888;
     --accent: #00d4ff;
+    --accent-dim: rgba(0, 212, 255, 0.1);
+    --accent-border: rgba(0, 212, 255, 0.2);
+    --green: #4caf50;
+    --green-dim: rgba(76, 175, 80, 0.08);
+    --green-border: rgba(76, 175, 80, 0.2);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    /* Ensure you have this font loaded or fallback to sans-serif */
-    font-size: 18px; /* Added from internal styles */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    /* Remove default padding that conflicts with full-width sections */
 }
 
-header {
-    padding: 80px 10%;
-    text-align: center;
-    /* Add your background image URL here */
-    background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.7)), url('your-header-bg.jpg') center/cover;
+/* --- TYPOGRAPHY UTILITIES --- */
+.eyebrow,
+.section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
 }
 
-.section {
-    padding: 60px 10%;
-
+h1 {
+    font-size: clamp(38px, 6vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    line-height: 1.1;
 }
 
 h2 {
-    border-left: 4px solid var(--accent);
-    padding-left: 15px;
-    margin-bottom: 30px;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* --- HEADER --- */
+header {
+    padding: 90px 10% 72px;
+    text-align: center;
+    position: relative;
+    background:
+        radial-gradient(ellipse 80% 55% at 50% 0%, rgba(0, 212, 255, 0.07) 0%, transparent 70%),
+        var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.tagline {
+    color: var(--text-muted);
+    font-size: 14px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text);
-    /* Ensure heading color matches theme */
+    margin: 14px 0 32px;
 }
 
-
-
-/* Grid Layout - CRITICAL for your projects */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-/* Card Styles */
-.card {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    position: relative;
-    /* Needed for absolute link overlay */
-    overflow: hidden;
-    position: relative;
-    /* Needed for the link overlay */
-}
-
-
-.card:hover {
-    transform: translateY(-5px);
-    border: 1px solid var(--accent);
-}
-
-/* Image Handling */
-.card img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 2/1;
-    /* Enforces 600x300 ratio */
-    object-fit: cover;
-    /* Prevents stretching */
-    border-radius: 5px;
-    margin-bottom: 15px;
-    display: block;
-    pointer-events: none;
-}
-
-/* Clickable Card Link Overlay */
-.card a.card-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    cursor: pointer;
-    display: block;
-    background: transparent;
-}
-
-/* About Section */
-.about-flex {
+.header-tags {
     display: flex;
-    align-items: center;
-    gap: 40px;
+    gap: 10px;
+    justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 48px;
 }
 
-.about-photo {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 3px solid var(--accent);
-    object-fit: cover;
+.tag {
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
 }
 
-/* Video Containers */
+/* --- VIDEO CONTAINER --- */
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
-    /* 16:9 ratio */
     height: 0;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #000;
+    border: 1px solid var(--border);
 }
 
 .video-container iframe {
@@ -130,134 +129,440 @@ h2 {
     border: 0;
 }
 
-/* Buttons */
-.contact-btn {
+header .video-container {
+    max-width: 760px;
+    margin: 0 auto;
+    /* override padding-bottom for max-width container */
+    padding-bottom: min(56.25%, calc(760px * 0.5625));
+}
+
+/* --- SECTIONS --- */
+.section {
+    padding: 80px 10%;
+}
+
+.section-alt {
+    background-color: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+/* --- PROJECT GRID --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* --- CARDS --- */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-hover);
+    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.07);
+}
+
+/* Full-card clickable overlay */
+.card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: block;
+    background: transparent;
+}
+
+.card-img-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: #111;
+}
+
+.card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-wrap img {
+    transform: scale(1.03);
+}
+
+.card-body {
+    padding: 18px 20px 20px;
+}
+
+.card-body h3 {
+    margin-bottom: 6px;
+}
+
+.card-role {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.card-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.card-tag {
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: #aaaaaa;
+    padding: 3px 9px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+}
+
+.card-arrow {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 11;
+    pointer-events: none;
+}
+
+.card:hover .card-arrow {
+    opacity: 1;
+}
+
+/* --- TECHNICAL VIDEOS --- */
+.video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.video-item {
+    max-width: 860px;
+}
+
+.video-caption {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--text-muted);
+    padding-left: 2px;
+}
+
+/* --- ABOUT --- */
+.about-wrap {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 44px;
+}
+
+.about-photo-wrap {
+    flex-shrink: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.about-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    object-fit: cover;
+    display: block;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--green);
+    background: var(--green-dim);
+    border: 1px solid var(--green-border);
+    border-radius: 20px;
+    padding: 5px 14px;
+    white-space: nowrap;
+}
+
+.status-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+}
+
+.about-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #bbbbbb;
+    margin-bottom: 16px;
+}
+
+.about-text p:last-of-type {
+    margin-bottom: 0;
+}
+
+.skills-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.skill-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 12px;
+    color: #aaaaaa;
+    padding: 5px 12px;
+}
+
+/* --- TESTIMONIALS --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.testimonial {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-featured {
+    grid-column: span 2;
+    border-color: var(--accent-border);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.04), var(--card-bg));
+}
+
+.quote-mark {
+    font-size: 52px;
+    line-height: 0.8;
+    color: rgba(0, 212, 255, 0.2);
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 16px;
+    display: block;
+    user-select: none;
+}
+
+.testimonial p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #cccccc;
+    font-style: italic;
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: auto;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.25), rgba(0, 100, 140, 0.25));
+    border: 1px solid var(--accent-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.author-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #dddddd;
+    margin-bottom: 2px;
+}
+
+.author-role {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* --- CTA SECTION --- */
+.cta-section {
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.cta-section h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 12px;
+}
+
+.cta-section > p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 36px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+
+.cta-btn {
     display: inline-block;
     background: var(--accent);
-    color: #000;
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-weight: bold;
+    color: #000000;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 32px;
+    border-radius: 8px;
     text-decoration: none;
-    transition: opacity 0.3s;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.contact-btn:hover {
-    opacity: 0.8;
+.cta-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
     text-decoration: none;
 }
 
-footer {
-    text-align: center;
-    padding: 40px;
-    font-size: 0.8rem; /* This was originally inline in the HTML footer tag */
-    color: #666;
+.cta-btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .section {
-        padding: 40px 5%;
-    }
-
-    .about-flex {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Stack cards on mobile if desired */
+.cta-btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    color: var(--text);
+    opacity: 1;
 }
 
+/* --- SOCIAL LINKS --- */
 .social-links {
-    margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 24px;
 }
 
 .social-links a {
-    color: var(--text);
-    font-size: 1.8rem;
-    /* Controls size of all icons */
-    transition: color 0.3s ease, transform 0.3s ease;
+    color: var(--text-muted);
+    font-size: 1.6rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .social-links a:hover {
     color: var(--accent);
     transform: translateY(-3px);
-} 
+}
 
-
-/* Specific fix for the SVG to ensure it inherits size correctly if needed */
 .social-links svg {
     width: 1em;
     height: 1em;
     display: block;
 }
 
-/* --- ADDED FROM INTERNAL STYLES FOR TESTIMONIALS AND FOOTER FONT SIZE --- */
-
-/* --- FADE CAROUSEL STYLES (from internal <style>) --- */
-.testimonial-carousel {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    min-height: 300px; /* Prevents layout shift */
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 32px 10%;
+    font-size: 12px;
+    color: #444444;
+    border-top: 1px solid var(--border);
 }
 
-.testimonial-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    pointer-events: none; /* Only visible slide is clickable if needed */
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-featured {
+        grid-column: span 1;
+    }
 }
 
-.testimonial-slide.active {
-    opacity: 1;
-    position: relative; /* Brings active slide into flow */
-    pointer-events: auto;
+@media (max-width: 768px) {
+    header {
+        padding: 60px 6% 52px;
+    }
+
+    .section {
+        padding: 56px 6%;
+    }
+
+    .about-wrap {
+        flex-direction: column;
+        align-items: center;
+        padding: 32px 24px;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .skills-row {
+        justify-content: center;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
 }
-
-.testimonial-content {
-    background: var(--card-bg);
-    padding: 40px;
-    border-radius: 10px;
-    border-left: 4px solid var(--accent);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.testimonial-content p {
-    font-size: 1.1rem;
-    font-style: italic;
-    margin-bottom: 20px;
-}
-
-/* Rule for h2 inside testimonial content (was implicitly styled by general h2 but might need specific targeting if nested differently) */
-/* Actually, looking again, there IS NO h2 INSIDE testimonial-content in the HTML, only <p> and <small>. */
-/* The original internal style had h2 here but it wasn't used. We can omit the h2 rule inside .testimonial-content */
-
-
-.testimonial-content small {
-    display: block;
-    text-align: right;
-    color: var(--accent);
-    font-weight: bold;
-}
-/* ---------------------------- */
-
-
-/* Ensure footer font size is correct if the inline style was removed */
-/* The rule for footer font-size is already included above in the main footer {} block */
-/* If the inline style was font-size: 0.8rem;, then the rule above covers it. */
-/* If you want a different size specifically for the footer text compared to the base, keep or adjust the footer {} rule. */
-
