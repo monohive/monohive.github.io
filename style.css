@@ -47,6 +47,7 @@ body {
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 10px;
+    text-align: center;
 }
 
 h1 {
@@ -63,6 +64,7 @@ h2 {
     color: #ffffff;
     letter-spacing: -0.01em;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 h3 {
