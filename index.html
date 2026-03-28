@@ -142,7 +142,7 @@
                         <li>Combat Reinforcement: Ability sounds, such as staff swings, are bolstered with low-end accents to provide a sense of "heft," while the final hit in a combo sequence utilizes a "thunder layer" to signify a powerful climax</li>
                         <li>Narrative-Driven Vocalizations: Character "barks" and exertions are specifically shaped with a simian quality to reinforce the character's primal energy and playful personality</li>
                         <li>Dynamic Animation Syncing: Implementation involves mapping audio source assets to specific animation beats, such as dynamically ramping the volume of footsteps when the character transitions into a jog</li>
-                        <li>Contextual Mix Testing: The final stage involves testing the character's sounds layered over ambient beds to ensure the audio remains clear and emotionally impactful within the full gameplay mix</li>
+                        <li>Optimised voice prioritisation logic to prevent audio dropouts during large-scale battles with many active agents</li>
                     </ul>
                 </div>
             </div>
@@ -154,11 +154,11 @@
                 <div class="video-info">
                     <h3 class="video-title">Character Audio Design — Part I</h3>
                     <ul class="video-bullets">
-                        <li>Established the foundational voice and foley pipeline for all playable and non-playable characters</li>
-                        <li>Recorded and edited a custom foley library covering footsteps, handling, and environmental interactions</li>
-                        <li>Set up FMOD event hierarchies to keep character sounds cleanly separated from UI and world audio buses</li>
-                        <li>Designed locomotion blend trees that crossfade walk, run, and sprint layers in real time based on velocity</li>
-                        <li>Documented the full pipeline so additional sound designers could onboard and contribute without rework</li>
+                        <li>Holistic Character Immersion: The process begins by analyzing the character’s story, motivations, and fears to ensure they feel grounded in their world</li>
+                        <li>Five-Step Design Framework: A structured workflow is used: character discovery, unique sound design, game implementation, testing/refining, and team handoff</li>
+                        <li>Early Team Alignment: Before designing sounds, the entire development team aligns on visual cues and personality traits to ensure a shared creative vision</li>
+                        <li>Building with Purpose: This phase avoids guesswork by defining a specific audio perspective on how the character should sound, feel, and react</li>
+                        <li>The Character Snapshot: The stage concludes with a "one-page snapshot" detailing the character's core traits, environment, and key sonic moments</li>
                     </ul>
                 </div>
             </div>
@@ -170,11 +170,11 @@
                 <div class="video-info">
                     <h3 class="video-title">Linear Re-Design — Wwise / Reaper</h3>
                     <ul class="video-bullets">
-                        <li>Re-designed the complete audio for a linear cinematic sequence, replacing placeholder sounds with final assets</li>
-                        <li>Used Reaper for all editorial and sound design work, then brought stems into Wwise for game-ready integration</li>
-                        <li>Implemented music ducking and dialogue prioritisation through Wwise RTPC and attenuation curves</li>
-                        <li>Crafted a layered sound design approach — each asset built from multiple recorded and synthesised sources</li>
-                        <li>Delivered a polished final mix that matched the emotional arc of the scene without relying on temp music</li>
+                        <li>Real-Time Middleware Workflow: The project features a live link between Reaper and Wwise, allowing for instant audio event triggering and testing</li>
+                        <li>Reaper-to-Wwise Integration: By using a specialized plugin, event calls are posted directly in Reaper to trigger the corresponding sounds in Wwise</li>
+                        <li>Cinematic Sound Replacement: Every sonic element—including mechanical servos, atmospheric drones, and character foley—has been replaced with custom-designed assets</li>
+                        <li>Seamless Dynamic Processing: The demonstration highlights how various audio layers are processed in real-time to match the intensity and movement of the on-screen action</li>
+                        <li>Wwise Logic Execution: The redesign moves beyond simple playback, utilizing Wwise to manage the playback logic and behavioral rules of the soundscape</li>
                     </ul>
                 </div>
             </div>
@@ -186,11 +186,11 @@
                 <div class="video-info">
                     <h3 class="video-title">Optimising Large-Scale Ambiences</h3>
                     <ul class="video-bullets">
-                        <li>Identified and resolved a CPU spike issue caused by too many simultaneous streaming ambience events in large levels</li>
-                        <li>Replaced overlapping event instances with a single managed ambience controller driven by zone trigger volumes</li>
-                        <li>Used FMOD profiler data to benchmark before and after, achieving a 40% reduction in audio thread load</li>
-                        <li>Introduced distance-based LOD for background ambience layers, silencing inaudible assets below a perceptual threshold</li>
-                        <li>Wrote up the optimisation approach as an internal reference doc, which became standard practice for the team</li>
+                        <li>Overcoming Scalability Issues: Traditional methods of placing multiple ambient actors are often messy and create spatialization errors in large areas</li>
+                        <li>Single-Actor Solution: A single blueprint actor is used to cover the entire environment, streamlining the workflow and improving project organization</li>
+                        <li>Spline-Based Movement: The ambient audio source is attached to a spline component within the blueprint, allowing the sound to dynamically "follow" a predefined path</li>
+                        <li>Improved Spatial Accuracy: This method ensures that the listener experiences consistent and accurate 3D audio relative to the large water body, regardless of their position</li>
+                        <li>Project Optimization: By reducing actor count, this technique minimizes overhead and provides a cleaner, more manageable implementation for open-world scenes</li>
                     </ul>
                 </div>
             </div>
