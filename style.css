@@ -141,6 +141,11 @@ header .video-container {
     padding: 80px 10%;
 }
 
+.section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
 .section-alt {
     background-color: var(--surface);
     border-top: 1px solid var(--border);
@@ -260,8 +265,6 @@ header .video-container {
     display: flex;
     flex-direction: column;
     gap: 56px;
-    max-width: 1100px;
-    margin: 0 auto;
 }
 
 .video-item {
