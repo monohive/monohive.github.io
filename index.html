@@ -122,11 +122,11 @@
                 <div class="video-info">
                     <h3 class="video-title">Procedural Ambience Implementation</h3>
                     <ul class="video-bullets">
-                        <li>Built a runtime ambience system that reacts dynamically to player position and in-game environment states</li>
-                        <li>Used FMOD parameter sheets to blend between multiple layered ambience beds without hard crossfades</li>
-                        <li>Implemented proximity-based asset swapping to reduce memory overhead in dense open-world areas</li>
-                        <li>Designed a modular signal chain so any level designer could drop in new zones without touching audio code</li>
-                        <li>Resulted in a seamless, living soundscape with zero audible transitions between distinct biomes</li>
+                        <li>Layered Ambient Architecture: The system combines traditional ambient loops for indoor and outdoor environments with 3D ambient source loops placed directly within the world for localized detail</li>
+                        <li>Procedural Sound Spawning: A custom blueprint system uses a box that follows the player to procedurally spawn audio assets at random points, ensuring the environment feels alive and non-repetitive</li>
+                        <li>Context-Aware Logic: The procedural spawner includes gameplay-driven constraints, such as disabling outdoor sound spawns when the player enters a specific interior area like the cathedral</li>
+                        <li>Audio-Driven Visuals: Using the MetaSound Output Subsystem, the implementation extracts audio amplitude data in real-time to control visual parameters</li>
+                        <li>Dynamic Lighting Integration: In this specific project, the audio output is converted into float values to drive the luminosity of light sources, creating a direct physical link between sound and the environment</li>
                     </ul>
                 </div>
             </div>
@@ -138,11 +138,11 @@
                 <div class="video-info">
                     <h3 class="video-title">Character Audio Design — Part II</h3>
                     <ul class="video-bullets">
-                        <li>Extended the character voice and foley system with combat-state awareness and fatigue modelling</li>
-                        <li>Chained FMOD macros to surface material detection, generating unique footstep responses across 12 surface types</li>
-                        <li>Applied randomisation curves to pitch and volume to eliminate the "machine gun" effect on repeated one-shots</li>
-                        <li>Integrated cloth and armour layer sounds tied to movement speed parameters for physical believability</li>
-                        <li>Optimised voice prioritisation logic to prevent audio dropouts during large-scale battles with many active agents</li>
+                        <li>Multi-Layered Texture Design: The audio is built using multiple layers of armor and cloth textures, specifically processed to reflect the character's unique movement and physical weight</li>
+                        <li>Combat Reinforcement: Ability sounds, such as staff swings, are bolstered with low-end accents to provide a sense of "heft," while the final hit in a combo sequence utilizes a "thunder layer" to signify a powerful climax</li>
+                        <li>Narrative-Driven Vocalizations: Character "barks" and exertions are specifically shaped with a simian quality to reinforce the character's primal energy and playful personality</li>
+                        <li>Dynamic Animation Syncing: Implementation involves mapping audio source assets to specific animation beats, such as dynamically ramping the volume of footsteps when the character transitions into a jog</li>
+                        <li>Contextual Mix Testing: The final stage involves testing the character's sounds layered over ambient beds to ensure the audio remains clear and emotionally impactful within the full gameplay mix</li>
                     </ul>
                 </div>
             </div>
