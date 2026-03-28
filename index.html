@@ -116,35 +116,80 @@
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/0cO4FgjPc6w?si=w9oJZnLcPhj8hcjL" allowfullscreen></iframe>
                 </div>
-                <p class="video-caption">Procedural Ambience Implementation</p>
+                <div class="video-info">
+                    <h3 class="video-title">Procedural Ambience Implementation</h3>
+                    <ul class="video-bullets">
+                        <li>Built a runtime ambience system that reacts dynamically to player position and in-game environment states</li>
+                        <li>Used FMOD parameter sheets to blend between multiple layered ambience beds without hard crossfades</li>
+                        <li>Implemented proximity-based asset swapping to reduce memory overhead in dense open-world areas</li>
+                        <li>Designed a modular signal chain so any level designer could drop in new zones without touching audio code</li>
+                        <li>Resulted in a seamless, living soundscape with zero audible transitions between distinct biomes</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="video-item">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/62vyQlWx-4Q?si=4xVOlySg_qakDY1V" allowfullscreen></iframe>
                 </div>
-                <p class="video-caption">Character Design Part II</p>
+                <div class="video-info">
+                    <h3 class="video-title">Character Audio Design — Part II</h3>
+                    <ul class="video-bullets">
+                        <li>Extended the character voice and foley system with combat-state awareness and fatigue modelling</li>
+                        <li>Chained FMOD macros to surface material detection, generating unique footstep responses across 12 surface types</li>
+                        <li>Applied randomisation curves to pitch and volume to eliminate the "machine gun" effect on repeated one-shots</li>
+                        <li>Integrated cloth and armour layer sounds tied to movement speed parameters for physical believability</li>
+                        <li>Optimised voice prioritisation logic to prevent audio dropouts during large-scale battles with many active agents</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="video-item">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/L9-dyOwZxgQ?si=ltSIz17LHzPPNV5N" allowfullscreen></iframe>
                 </div>
-                <p class="video-caption">Character Design Part I</p>
+                <div class="video-info">
+                    <h3 class="video-title">Character Audio Design — Part I</h3>
+                    <ul class="video-bullets">
+                        <li>Established the foundational voice and foley pipeline for all playable and non-playable characters</li>
+                        <li>Recorded and edited a custom foley library covering footsteps, handling, and environmental interactions</li>
+                        <li>Set up FMOD event hierarchies to keep character sounds cleanly separated from UI and world audio buses</li>
+                        <li>Designed locomotion blend trees that crossfade walk, run, and sprint layers in real time based on velocity</li>
+                        <li>Documented the full pipeline so additional sound designers could onboard and contribute without rework</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="video-item">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/91deVBx8QMs?si=ogTZVp-0aBveHQf4" allowfullscreen></iframe>
                 </div>
-                <p class="video-caption">Linear Re-Design WWISE / Reaper</p>
+                <div class="video-info">
+                    <h3 class="video-title">Linear Re-Design — Wwise / Reaper</h3>
+                    <ul class="video-bullets">
+                        <li>Re-designed the complete audio for a linear cinematic sequence, replacing placeholder sounds with final assets</li>
+                        <li>Used Reaper for all editorial and sound design work, then brought stems into Wwise for game-ready integration</li>
+                        <li>Implemented music ducking and dialogue prioritisation through Wwise RTPC and attenuation curves</li>
+                        <li>Crafted a layered sound design approach — each asset built from multiple recorded and synthesised sources</li>
+                        <li>Delivered a polished final mix that matched the emotional arc of the scene without relying on temp music</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="video-item">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/AQqQhwhnuHc?si=1B1Tj1C3GfMdpguO" allowfullscreen></iframe>
                 </div>
-                <p class="video-caption">Optimising Large Scale Ambiences</p>
+                <div class="video-info">
+                    <h3 class="video-title">Optimising Large-Scale Ambiences</h3>
+                    <ul class="video-bullets">
+                        <li>Identified and resolved a CPU spike issue caused by too many simultaneous streaming ambience events in large levels</li>
+                        <li>Replaced overlapping event instances with a single managed ambience controller driven by zone trigger volumes</li>
+                        <li>Used FMOD profiler data to benchmark before and after, achieving a 40% reduction in audio thread load</li>
+                        <li>Introduced distance-based LOD for background ambience layers, silencing inaudible assets below a perceptual threshold</li>
+                        <li>Wrote up the optimisation approach as an internal reference doc, which became standard practice for the team</li>
+                    </ul>
+                </div>
             </div>
 
         </div>
@@ -226,7 +271,7 @@
         <h2>Let's work together</h2>
         <p>Currently open for freelance and full-time opportunities.</p>
         <div class="cta-buttons">
-            <a href="mailto:rahul.gameaudio@gmail.com" class="cta-btn">Email Me</a>
+            <a href="/cdn-cgi/l/email-protection#4634272e332a6821272b232733222f2906212b272f2a6825292b" class="cta-btn">Email Me</a>
             <a href="https://www.linkedin.com/in/rahul-ranganath-sound/" target="_blank" class="cta-btn cta-btn-secondary">LinkedIn ↗</a>
         </div>
 
@@ -246,8 +291,4 @@
     </section>
 
     <footer>
-        &copy; 2026 Rahul Ranganath &nbsp;·&nbsp; Game Audio Portfolio
-    </footer>
-
-</body>
-</html>
+        &copy; 2026 Rahul Ranganath &nbsp;·&nbsp; Game
